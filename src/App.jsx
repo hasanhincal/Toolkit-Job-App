@@ -1,0 +1,36 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import JopList from "./pages/JopList";
+import AddJop from "./pages/AddJop";
+import Header from "./components/Header";
+import api from "./utils/api";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setError, setJobs, setLoading } from "./app/slices/jobSlice";
+
+function App() {
+  const dispatch = useDispatch();
+  const getJobs = () => {
+    dispatch(setLoading());
+    api
+      .get("/jobs")
+      .then((res) => dispatch(setJobs(res.data)))
+      .catch((err) => dispatch(setError(err.message)));
+  };
+
+  useEffect(() => {
+    getJobs();
+  });
+  return (
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<JopList />} />
+          <Route path="/new" element={<AddJop />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;

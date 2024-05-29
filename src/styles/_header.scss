@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  margin-bottom: 30px;
+  nav {
+    display: flex;
+    gap: 2rem;
+    a {
+      color: #e244a0;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .active {
+      text-shadow: 0 0 20px pink;
+    }
+  }
+}

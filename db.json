@@ -1,0 +1,94 @@
+{
+  "jobs": [
+    {
+      "position": "Frontend Developer",
+      "company": "IBM",
+      "location": "İzmir/Bayraklı",
+      "status": "Devam Ediyor",
+      "type": "Tam Zamanlı",
+      "id": "96c452ae-88ce-431c-8a7d-144ed6adfc42",
+      "date": 1712643002478
+    },
+    {
+      "position": "Product Manager",
+      "company": "Udemig",
+      "location": "Redmond",
+      "status": "Reddedildi",
+      "type": "Yarı Zamanlı",
+      "id": "6b94a2d3-0571-412b-81e0-910d99a2f057",
+      "date": 1712607002328
+    },
+    {
+      "position": "Marketing Manager",
+      "company": "Microsoft",
+      "location": "Seattle",
+      "status": "Reddedildi",
+      "type": "Yarı Zamanlı",
+      "id": "d7c4d757-4957-488d-a7f2-f8db05aa2c46",
+      "date": 1318607013502
+    },
+    {
+      "position": "Data Scientist",
+      "company": "Microsoft",
+      "location": "Menlo Park",
+      "status": "Devam Ediyor",
+      "type": "Yarı Zamanlı",
+      "id": "ec72d702-ff65-46e4-bc4c-0ee6d3660913",
+      "date": 1715607078538
+    },
+    {
+      "position": "Data Scientist",
+      "company": "Microsoft",
+      "location": "Menlo Park",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "id": "7fb211e4-a53e-4804-b949-9a3d25b8e67c",
+      "date": 1712608152577
+    },
+    {
+      "position": "Marketing Manager",
+      "company": "Udemig",
+      "location": "İstanbul",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "id": "b7f2b2dc-7b84-41e5-bbbe-5850785f02d6",
+      "date": 1716756086117
+    },
+    {
+      "position": "Marketing Manager",
+      "company": "Emartech",
+      "location": "İstanbul",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "id": "f983034e-5d76-4317-8368-502c4c8a8e78",
+      "date": 1716756646867
+    },
+    {
+      "id": "fe761b3b-9f7a-4ef3-b7a3-698ee4dcd586",
+      "position": "marketing manager",
+      "company": "udemig",
+      "location": "istanbul",
+      "status": "Reddedildi",
+      "type": "Staj",
+      "date": 1716986794868
+    },
+    {
+      "id": "09e2ca98-b4d4-46b4-a714-711370b3fc31",
+      "position": "marketing manager",
+      "company": "udemig",
+      "location": "istanbul",
+      "status": "Mülakat",
+      "type": "Staj",
+      "date": 1716988402062
+    },
+    {
+      "id": "e4b996c1-16c0-4cc4-b792-30fb9146078b",
+      "position": "data",
+      "company": "cem",
+      "location": "bolu",
+      "status": "Devam Ediyor",
+      "type": "Uzaktan",
+      "date": 1716994220644
+    }
+  ]
+}

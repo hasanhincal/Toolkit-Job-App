@@ -1,0 +1,39 @@
+.add-page {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+}
+.container {
+  max-width: 700px;
+  width: 70vw;
+  box-shadow: 0 0 50px rgb(225, 19, 126);
+  padding: 1.5rem;
+  border-radius: 8px;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    .form-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      input,
+      select {
+        border-radius: 6px;
+        padding: 10px 15px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.filter-section {
+  @extend .container;
+  margin: 20px auto 80px;
+}
