@@ -13,13 +13,15 @@ import { useNavigate } from "react-router-dom";
 const AddJop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //* Form data oluştur.
+    //*inputtaki verilerden Form data oluştur.
     const formData = new FormData(e.target);
-
     const newJobData = Object.fromEntries(formData.entries());
+
+    //* Tarih ve id ekle;
     newJobData.id = v4();
     newJobData.date = Date.now();
 

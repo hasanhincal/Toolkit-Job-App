@@ -1,9 +1,13 @@
 import React from "react";
 
-const Error = () => {
+const Error = ({ message, retry }) => {
   return (
-    <div>
-      <h1>Hata...</h1>
+    <div className="error">
+      <p>Üzgünüz verilere erişirken bir hata oluştu</p>
+      <p className="text">{message}</p>
+      <button onClick={retry} className="button">
+        <span>Tekrar Dene</span>
+      </button>
     </div>
   );
 };

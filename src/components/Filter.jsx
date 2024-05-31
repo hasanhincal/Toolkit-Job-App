@@ -3,67 +3,38 @@ import Select from "./Select";
 import { sortOpt, statusOpt, typeOpt } from "../constants";
 import SubmitButton from "./SubmitButton";
 import { useDispatch } from "react-redux";
-import { setError, setJobs, setLoading } from "../app/slices/jobSlice";
-import api from "../utils/api";
+import { useDebounce } from "@uidotdev/usehooks";
+import { filterBySearch, sortJobs } from "../app/slices/jobSlice";
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const [text, setText] = useState();
-  const [status, setStatus] = useState();
-  const [type, setType] = useState();
-  const [sort, setSort] = useState();
-  console.log(text);
-  console.log(status);
-  console.log(type);
-  console.log(sort);
+  const [text, setText] = useState("");
 
-  //* Filtreleme veya sıralama ile ilgili bir state değiştiğinde "api"'den güncel verileri al;
+  //*! DEBOUNCE;
+  /*
+   * Her tuş vuruşun da filtreleme yapmak düşük donanımlı cihazlarda kasmalara ve donmalara
+   * sebep olabileceğinden filtreleme işlemini kullanıcı yazma işni bıraktığı anda yapmalıyız.
+   * Bu işleme "DEBOUCE" denir.
+   * Ardışık olarak gerçekleşen fonk. çağırma işlemlerinde fonk. kısa bir zaman aralığında
+   * çağırıldığını görmezden gelir.
+   */
+  //* 2. yol;
+  const debounceText = useDebounce(text, 500);
+
   useEffect(() => {
-    const sortParam =
-      sort === "a-z" || sort === "z-a"
-        ? "company"
-        : sort === "En Yeni" || sort === "En Eski"
-        ? "date"
-        : undefined;
+    //* Bir sayaç başlat ve işlemi sayaç durduğunda yap;
+    const timer = setTimeout(() => {
+      dispatch(filterBySearch({ text, name: "company" }));
+    }, 500);
 
-    const orderParam =
-      sort === "a-z"
-        ? "asc"
-        : sort === "z-a"
-        ? "desc"
-        : sort === "En Yeni"
-        ? "desc"
-        : sort === "En Eski"
-        ? "asc"
-        : undefined;
-
-    const params = {
-      q: text,
-      _sort: sortParam,
-      _order: orderParam,
-      type: type || undefined,
-      status: status || undefined,
+    //* Eğer süre bitmeden useEffect çalışırsa önceki sayacın çalışmasını durdur;
+    return () => {
+      clearTimeout(timer);
     };
+  }, [text]);
 
-    dispatch(setLoading());
-
-    api
-      .get("/jobs", { params })
-      .then((res) => dispatch(setJobs(res.data)))
-      .catch((err) => dispatch(setError(err.message)));
-  }, [text, sort, type, status]);
-
-  //* Filtreyi sıfırla butonuna tıkladığımızda stateleri ve inputları sıfırlar;
-  const handleReset = (e) => {
-    e.preventDefault();
-
-    //* stateleri sıfırla;
-    setText();
-    setStatus();
-    setType();
-    setSort();
-
-    //* inputları sıfırla;
+  const handleReset = () => {
+    //* inputları resetler;
     e.target.reset();
   };
 
@@ -84,17 +55,21 @@ const Filter = () => {
           <Select
             label="Durum"
             options={statusOpt}
-            handleChange={(e) => setStatus(e.target.value)}
+            handleChange={(e) =>
+              dispatch(filterBySearch({ name: "status", text: e.target.value }))
+            }
           />
           <Select
             label={"Tür"}
             options={typeOpt}
-            handleChange={(e) => setType(e.target.value)}
+            handleChange={(e) =>
+              dispatch(filterBySearch({ name: "type", text: e.target.value }))
+            }
           />
           <Select
             label={"Sırala"}
             options={sortOpt}
-            handleChange={(e) => setSort(e.target.value)}
+            handleChange={(e) => dispatch(sortJobs(e.target.value))}
           />
         </div>
 

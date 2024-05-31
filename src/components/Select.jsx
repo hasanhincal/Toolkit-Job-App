@@ -5,7 +5,7 @@ const Select = ({ label, options, name, handleChange }) => {
     <div>
       <label>{label}</label>
       <select defaultValue={""} onChange={handleChange} name={name}>
-        <option value="">Seçiniz</option>
+        <option hidden>Seçiniz</option>
         {options.map((i, index) => (
           <option key={index} value={i}>
             {i}

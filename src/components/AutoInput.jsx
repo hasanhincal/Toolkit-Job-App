@@ -5,7 +5,7 @@ const AutoInput = ({ label, name }) => {
   const { jobs } = useSelector((store) => store.jobsReducer);
 
   //* 1- Sadece pozisyon değerlerinden oluşan bir dizi tanımla;
-  const arr = jobs.map((job) => job[name]);
+  const arr = jobs?.map((job) => job[name]);
 
   //* 2- Dizide tekrar eden elemanları kaldırır;
   const filtredSet = new Set(arr);

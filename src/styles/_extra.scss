@@ -111,3 +111,115 @@
     opacity: 1;
   }
 }
+
+//* Loader;
+.loader-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: -75px;
+}
+.spinner span {
+  position: absolute;
+  background-color: white;
+  top: 50%;
+  width: 35px;
+  height: 7px;
+  box-shadow: 2px 2px 3px 0 black;
+  animation: dominos 1s ease infinite;
+}
+.spinner span:nth-child(1) {
+  left: 80px;
+  animation-delay: 0.125s;
+}
+.spinner span:nth-child(2) {
+  left: 70px;
+  animation-delay: 0.3s;
+}
+.spinner span:nth-child(3) {
+  left: 60px;
+  animation-delay: 0.425ms;
+}
+.spinner span:nth-child(4) {
+  left: 50px;
+  animation-delay: 0.54s;
+}
+.spinner span:nth-child(5) {
+  left: 40px;
+  animation-delay: 0.665s;
+}
+.spinner span:nth-child(6) {
+  left: 30px;
+  animation-delay: 0.79s;
+}
+.spinner span:nth-child(7) {
+  left: 20px;
+  animation-delay: 0.916s;
+}
+.spinner span:nth-child(8) {
+  left: 10px;
+}
+
+@keyframes dominos {
+  50% {
+    opacity: 0.7;
+  }
+  75% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  80% {
+    opacity: 1;
+  }
+}
+//* error;
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  margin-top: 50px;
+  p {
+    font-size: 18px;
+  }
+  .text {
+    color: crimson;
+  }
+}
+.button {
+  width: 150px;
+  border: none;
+  background-color: #e244a0;
+  transform: rotate(5deg);
+  padding: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Gochi Hand", cursive;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #494a4b;
+}
+.button span {
+  background-color: #f1f5f8;
+  display: block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 2px solid #494a4b;
+  transition: all 0.3s;
+}
+.button:active {
+  transform: translateY(5px);
+  padding-bottom: 0;
+  outline: 0;
+}

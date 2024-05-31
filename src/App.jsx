@@ -19,13 +19,13 @@ function App() {
 
   useEffect(() => {
     getJobs();
-  });
+  }, []);
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<JopList />} />
+          <Route path="/" element={<JopList retry={getJobs()} />} />
           <Route path="/new" element={<AddJop />} />
         </Routes>
       </BrowserRouter>
